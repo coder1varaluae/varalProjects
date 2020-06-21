@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+<!-- Upload form. Note enctype attribute! -->
+{% block content %}
+<ul class="messages">
+{% for message in messages %}
+<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+{% endfor %}
+</ul>
+<form action="{% url 'docupload' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% comment %} <h1> document upload </h1> {% endcomment %}
+    <p> {{ form.as_p}} </p>
+    {% comment %} <p>{{ form.non_field_errors }}</p>
+
+    <p>{{ form.docfile.label_tag }} {{ form.emailH.label_tag }} {{ form.emailH.help_text }} {{ form.docfile.help_text }}</p>
+
+    <p>
+        {{ form.docfile.errors }}
+        {{ form.docfile }} {% endcomment %}
+
+    </p>
+
+    <p><input type="submit" value="Upload"/></p>
+</form>
+<!-- List of uploaded documents -->
+{% if documents %}
+    <ul>
+        {% for document in documents %}
+
+            <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No documents.</p>
+{% endif %}
+
+{% endblock %}
