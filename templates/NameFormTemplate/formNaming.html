@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+<!-- {% block title %}Create an Account{% endblock %} -->
+<!-- {% load crispy_forms_tags %} -->
+
+  {% block content %}
+    <form method="POST" enctype="multipart/form-data" action="{% url 'formNaming' %}">
+	     {% csrf_token %}
+	     <!-- {{ form_naming|crispy }} -->
+       <div align="right">
+         <!-- <embed src="Client_Access.png" width="300" height="200"> -->
+          <!-- <embed src="DEMO.pdf" width="420" height="420" style="vertical-align:middle;margin:50px 0px"> -->
+         <!-- <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTGEWXWCQfJKOse8wVrnInwzoX3CPbSIIHHGFTZA-2izyPdPXL7KTp6gMY_N1aHwQvDGCUp9OqRVWUi/embed?start=false&loop=false&delayms=3000" align="right" frameborder="0" width="500" height="700"></iframe> -->
+         <!-- <iframe src="files/files/Client_Access.png"  align="right" frameborder="0" width="500" height="700"></iframe> -->
+         <!-- {% for image in images %} -->
+         <img src='C:\Users\Varal Consultancy\Desktop\doc_naming\Naming\files\files\Python_Code_With_old_syntax.png' />
+         <!-- {% endfor %} -->
+         <!-- <iframe src={{img_list}} width="800" height="300"></iframe> -->
+           <!-- <a href="DEMO.pdf">test.pdf</a> -->
+
+       </div>
+       <div align="left">
+         <input type="Jurisdiction" name="Jurisdiction" placeholder="Jurisdiction Name"></input>
+
+         <input type="text" name="Form" placeholder="Form Name"></input>
+         <br> <br>
+  	     <button type="submit" align="center">Submit</button>
+       </div>
+    </form>
+{% endblock %}
